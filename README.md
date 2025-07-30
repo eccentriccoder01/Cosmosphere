@@ -80,7 +80,7 @@ To run Cosmosphere:
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/eccentriccoder01/Cosmosphere.git](https://github.com/eccentriccoder01/Cosmosphere.git) # Assuming a repo named Cosmosphere
+git clone [https://github.com/eccentriccoder01/Cosmosphere.git](https://github.com/eccentriccoder01/Cosmosphere.git)
 cd Cosmosphere
 ````
 
