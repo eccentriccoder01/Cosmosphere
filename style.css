@@ -764,9 +764,11 @@ body {
     z-index: 2;
 }
 
-.rocket.launching {
+/* Rocket launching animation - updated to use rocketLaunch instead of launch */
+/* .rocket.launching {
     animation: launch 3s ease-in-out;
-}
+} */
+/* This is now defined at the end of the file with rocketLaunch animation */
 
 @keyframes launch {
     0% { transform: translateY(0) rotate(0deg); }
@@ -1107,4 +1109,54 @@ body {
     display: inline-block;
     background-size: 200% auto;
     animation: shimmerText 4s ease infinite;
+}
+
+/* Missing animations moved from JavaScript */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rocketLaunch {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-200px) scale(1.2); }
+    100% { transform: translateY(-400px) scale(0.8); opacity: 0; }
+}
+
+@keyframes shimmerText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Additional utility classes for dynamic styles */
+.rocket.launching {
+    animation: rocketLaunch 3s ease-out forwards;
+}
+
+.timeline-item {
+    transition: all 0.6s ease-out;
+}
+
+.future-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.viz-card {
+    transition: all 0.3s ease;
+}
+
+.progress-fill {
+    transition: stroke-dashoffset 2s ease-out;
+}
+
+.bar-fill {
+    transition: width 1.5s ease-out;
+    width: 0%;
+}
+
+.progress-bar {
+    transition: width 1.5s ease-out;
+    width: 0%;
 }
