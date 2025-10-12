@@ -228,24 +228,36 @@ function setupMissionSimulator() {
     // Initialize
     updateMissionStats();
 }
-
+// Test button to check sound works before using it in the mission
+document.getElementById('test-sound').addEventListener('click', () => {
+    const sound = document.getElementById('animated-sound');
+    sound.currentTime = 0;
+    sound.volume = 0.6;
+    sound.play().then(() => console.log("Sound playing!"))
+                .catch(err => console.error("Sound play failed:", err));
+});
 // Launch mission animation
 function launchMission() {
     const rocket = document.querySelector('.rocket');
+    const sound = document.getElementById('animated-sound');
     const launchBtn = document.getElementById('launch-btn');
     
+     if (missionData.fuel <= 0) {
+        alert("Cannot launch: Fuel is empty!");
+        return; // Stop launch if no fuel
+    }
+    sound.currentTime = 0;
+    sound.volume = 0.6;
+    sound.play().catch(err => console.warn("Audio play failed:", err));
     // Disable button during launch
     launchBtn.disabled = true;
     launchBtn.textContent = 'Launching...';
-    
-    // Start rocket animation
+    rocket.classList.remove('launching');
     rocket.classList.add('launching');
-    
     // Play launch sequence
     setTimeout(() => {
         const success = Math.random() * 100 < missionData.success;
         showMissionResult(success);
-        
         // Reset rocket
         rocket.classList.remove('launching');
         launchBtn.disabled = false;
@@ -568,18 +580,7 @@ style.textContent = `
             opacity: 1; 
             transform: translateY(0);
         }
-    }
-    
-    .rocket.launching {
-        animation: rocketLaunch 3s ease-out forwards;
-    }
-    
-    @keyframes rocketLaunch {
-        0% { transform: translateY(0) scale(1); }
-        50% { transform: translateY(-200px) scale(1.2); }
-        100% { transform: translateY(-400px) scale(0.8); opacity: 0; }
-    }
-    
+    }    
     .timeline-item {
         transition: all 0.6s ease-out;
     }
