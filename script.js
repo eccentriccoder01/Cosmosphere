@@ -138,15 +138,31 @@ function animateTimelineItems(eraEl) {
 
 // Setup mission simulator
 function setupMissionSimulator() {
-    const missionType = document.getElementById('mission-type');
-    const fuelLevel = document.getElementById('fuel-level');
-    const crewSize = document.getElementById('crew-size');
-    const fuelDisplay = document.getElementById('fuel-display');
-    const crewDisplay = document.getElementById('crew-display');
-    const launchBtn = document.getElementById('launch-btn');
-    const successProb = document.getElementById('success-prob');
-    const missionCost = document.getElementById('mission-cost');
-    const missionDuration = document.getElementById('mission-duration');
+    // Collect all required elements
+    const elements = {
+        missionType: document.getElementById('mission-type'),
+        fuelLevel: document.getElementById('fuel-level'),
+        crewSize: document.getElementById('crew-size'),
+        fuelDisplay: document.getElementById('fuel-display'),
+        crewDisplay: document.getElementById('crew-display'),
+        launchBtn: document.getElementById('launch-btn'),
+        successProb: document.getElementById('success-prob'),
+        missionCost: document.getElementById('mission-cost'),
+        missionDuration: document.getElementById('mission-duration')
+    };
+    
+    // Validate all elements exist
+    const missingElements = Object.entries(elements)
+        .filter(([key, element]) => !element)
+        .map(([key]) => key);
+    
+    if (missingElements.length > 0) {
+        console.warn('Mission simulator setup failed. Missing elements:', missingElements);
+        return; // Safe exit instead of crash
+    }
+    
+    // Destructure for easier use (now safe)
+    const { missionType, fuelLevel, crewSize, fuelDisplay, crewDisplay, launchBtn, successProb, missionCost, missionDuration } = elements;
     
     // Mission configurations
     const missions = {
@@ -231,24 +247,36 @@ function setupMissionSimulator() {
 // Test button to check sound works before using it in the mission
 document.getElementById('test-sound').addEventListener('click', () => {
     const sound = document.getElementById('animated-sound');
-    sound.currentTime = 0;
-    sound.volume = 0.6;
-    sound.play().then(() => console.log("Sound playing!"))
-                .catch(err => console.error("Sound play failed:", err));
 });
 // Launch mission animation
 function launchMission() {
     const rocket = document.querySelector('.rocket');
     const sound = document.getElementById('animated-sound');
     const launchBtn = document.getElementById('launch-btn');
-    
-     if (missionData.fuel <= 0) {
-        alert("Cannot launch: Fuel is empty!");
-        return; // Stop launch if no fuel
-    }
+   // Validate elements exist
+if (!rocket) {
+    console.warn('Rocket element not found, cannot launch mission');
+    return;
+}
+
+if (!launchBtn) {
+    console.warn('Launch button not found, cannot update button state');
+    return;
+}
+
+// Check fuel level
+if (missionData.fuel <= 0) {
+    alert("Cannot launch: Fuel is empty!");
+    return; // Stop launch if no fuel
+}
+
+// Play sound
+if (sound) {
     sound.currentTime = 0;
     sound.volume = 0.6;
     sound.play().catch(err => console.warn("Audio play failed:", err));
+}
+
     // Disable button during launch
     launchBtn.disabled = true;
     launchBtn.textContent = 'Launching...';
@@ -326,10 +354,29 @@ function setupTooltips() {
     const tooltip = document.getElementById('tooltip');
     const tooltipElements = document.querySelectorAll('[data-tooltip]');
     
+    // Validate tooltip container exists
+    if (!tooltip) {
+        console.warn('Tooltip container not found, skipping tooltip setup');
+        return;
+    }
+    
+    // Check if tooltip content container exists
+    const tooltipContent = tooltip.querySelector('.tooltip-content');
+    if (!tooltipContent) {
+        console.warn('Tooltip content container not found, skipping tooltip setup');
+        return;
+    }
+    
+    // Continue with original logic only if elements exist
+    if (tooltipElements.length === 0) {
+        console.info('No tooltip elements found on page');
+        return;
+    }
+    
     tooltipElements.forEach(element => {
         element.addEventListener('mouseenter', function(e) {
             const tooltipText = this.getAttribute('data-tooltip');
-            tooltip.querySelector('.tooltip-content').textContent = tooltipText;
+            tooltipContent.textContent = tooltipText;
             tooltip.style.display = 'block';
             tooltip.style.opacity = '1';
             updateTooltipPosition(e);
@@ -562,50 +609,7 @@ function initializeCharts() {
         });
     });
 }
+// CSS animations are now properly defined in style.css
+// No need for dynamic CSS creation
 
-// Add CSS animations for fadeIn
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
-    }
-    
-    @keyframes slideInTimeline {
-        from { 
-            opacity: 0; 
-            transform: translateY(50px);
-        }
-        to { 
-            opacity: 1; 
-            transform: translateY(0);
-        }
-    }    
-    .timeline-item {
-        transition: all 0.6s ease-out;
-    }
-    
-    .future-card {
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    
-    .viz-card {
-        transition: all 0.3s ease;
-    }
-    
-    .progress-fill {
-        transition: stroke-dashoffset 2s ease-out;
-    }
-    
-    .bar-fill {
-        transition: width 1.5s ease-out;
-        width: 0%;
-    }
-    
-    .progress-bar {
-        transition: width 1.5s ease-out;
-        width: 0%;
-    }
-`;
-document.head.appendChild(style);
+
