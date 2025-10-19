@@ -244,35 +244,48 @@ function setupMissionSimulator() {
     // Initialize
     updateMissionStats();
 }
-
+// Test button to check sound works before using it in the mission
+document.getElementById('test-sound').addEventListener('click', () => {
+    const sound = document.getElementById('animated-sound');
+});
 // Launch mission animation
 function launchMission() {
     const rocket = document.querySelector('.rocket');
+    const sound = document.getElementById('animated-sound');
     const launchBtn = document.getElementById('launch-btn');
-    
-    // Validate elements exist
-    if (!rocket) {
-        console.warn('Rocket element not found, cannot launch mission');
-        return;
-    }
-    
-    if (!launchBtn) {
-        console.warn('Launch button not found, cannot update button state');
-        return;
-    }
-    
+   // Validate elements exist
+if (!rocket) {
+    console.warn('Rocket element not found, cannot launch mission');
+    return;
+}
+
+if (!launchBtn) {
+    console.warn('Launch button not found, cannot update button state');
+    return;
+}
+
+// Check fuel level
+if (missionData.fuel <= 0) {
+    alert("Cannot launch: Fuel is empty!");
+    return; // Stop launch if no fuel
+}
+
+// Play sound
+if (sound) {
+    sound.currentTime = 0;
+    sound.volume = 0.6;
+    sound.play().catch(err => console.warn("Audio play failed:", err));
+}
+
     // Disable button during launch
     launchBtn.disabled = true;
     launchBtn.textContent = 'Launching...';
-    
-    // Start rocket animation
+    rocket.classList.remove('launching');
     rocket.classList.add('launching');
-    
     // Play launch sequence
     setTimeout(() => {
         const success = Math.random() * 100 < missionData.success;
         showMissionResult(success);
-        
         // Reset rocket
         rocket.classList.remove('launching');
         launchBtn.disabled = false;
@@ -596,6 +609,7 @@ function initializeCharts() {
         });
     });
 }
-
 // CSS animations are now properly defined in style.css
 // No need for dynamic CSS creation
+
+
