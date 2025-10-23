@@ -1,446 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
     <meta name="apple-mobile-web-app-title" content="Cosmosphere" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <title>Cosmosphere - The Evolution of Space Exploration</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="stars-background"></div>
-    
+
     <header class="hero-section">
-        <div class="hero-content">
-            <div class="hero-title-container">
-            <img src="C.png" alt="C" style="height: 11rem; transform: translateY(-18px); margin-right: -36px;"><h1 class="hero-title">OSMOSPHERE</h1>
-            </div>
-            <p class="hero-subtitle">A Journey Through Time and Space</p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="75">0</span>
-                    <span class="stat-label">Years of Exploration</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="4500">0</span>
-                    <span class="stat-label">Satellites Launched</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="12">0</span>
-                    <span class="stat-label">Humans on Moon</span>
-                </div>
-            </div>
+      <div class="hero-content">
+        <div class="hero-title-container">
+          <img
+            src="C.png"
+            alt="C"
+            style="
+              height: 11rem;
+              transform: translateY(-18px);
+              margin-right: -36px;
+            "
+          />
+          <h1 class="hero-title">OSMOSPHERE</h1>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+        <p class="hero-subtitle">A Journey Through Time and Space</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="75">0</span>
+            <span class="stat-label">Years of Exploration</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="4500">0</span>
+            <span class="stat-label">Satellites Launched</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="12">0</span>
+            <span class="stat-label">Humans on Moon</span>
+          </div>
         </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
     </header>
 
     <main class="main-content">
-        <section class="timeline-section">
-            <div class="container">
-                <h2 class="section-title">Space Exploration Timeline</h2>
-                <div class="timeline-controls">
-                    <button class="timeline-btn active" data-era="early">Early Era (1950s-1960s)</button>
-                    <button class="timeline-btn" data-era="golden">Golden Age (1970s-1980s)</button>
-                    <button class="timeline-btn" data-era="modern">Modern Era (1990s-2010s)</button>
-                    <button class="timeline-btn" data-era="future">Future (2020s+)</button>
-                </div>
-                
-                <div class="timeline-container">
-                    <div class="timeline-line"></div>
-                    
-                    <div class="timeline-era active" data-era="early">
-                        <div class="timeline-item" data-year="1957">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Sputnik 1</h3>
-                                <p>First artificial satellite launched by Soviet Union</p>
-                                <div class="timeline-stats">
-                                    <span>Weight: 183 lbs</span>
-                                    <span>Orbit: 96 minutes</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="1961">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Yuri Gagarin</h3>
-                                <p>First human in space aboard Vostok 1</p>
-                                <div class="timeline-stats">
-                                    <span>Duration: 108 minutes</span>
-                                    <span>Altitude: 327 km</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="1969">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Apollo 11</h3>
-                                <p>First humans land on the Moon</p>
-                                <div class="timeline-stats">
-                                    <span>Crew: 3 astronauts</span>
-                                    <span>Moon time: 21.5 hours</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-era" data-era="golden">
-                        <div class="timeline-item" data-year="1975">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Apollo-Soyuz</h3>
-                                <p>First joint US-Soviet space mission</p>
-                                <div class="timeline-stats">
-                                    <span>Duration: 9 days</span>
-                                    <span>Docked: 44 hours</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="1981">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Space Shuttle</h3>
-                                <p>First reusable spacecraft launches</p>
-                                <div class="timeline-stats">
-                                    <span>Missions: 135</span>
-                                    <span>Payload: 27,500 kg</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="1986">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Mir Space Station</h3>
-                                <p>Long-duration space laboratory</p>
-                                <div class="timeline-stats">
-                                    <span>Operational: 15 years</span>
-                                    <span>Crew: 104 people</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-era" data-era="modern">
-                        <div class="timeline-item" data-year="1998">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>ISS Construction</h3>
-                                <p>International Space Station assembly begins</p>
-                                <div class="timeline-stats">
-                                    <span>Partners: 15 nations</span>
-                                    <span>Cost: $150 billion</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="2008">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>SpaceX Falcon 1</h3>
-                                <p>First private liquid-fueled rocket reaches orbit</p>
-                                <div class="timeline-stats">
-                                    <span>Payload: 165 kg</span>
-                                    <span>Cost: $7M</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="2012">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Curiosity Rover</h3>
-                                <p>Advanced Mars exploration begins</p>
-                                <div class="timeline-stats">
-                                    <span>Weight: 899 kg</span>
-                                    <span>Distance: 29 km</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-era" data-era="future">
-                        <div class="timeline-item" data-year="2020">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Perseverance</h3>
-                                <p>Search for signs of ancient life on Mars</p>
-                                <div class="timeline-stats">
-                                    <span>Samples: 24 collected</span>
-                                    <span>Helicopter: Ingenuity</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="2024">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Artemis Program</h3>
-                                <p>Return humans to the Moon</p>
-                                <div class="timeline-stats">
-                                    <span>Target: 2026</span>
-                                    <span>First woman on Moon</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item" data-year="2030">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h3>Mars Mission</h3>
-                                <p>First crewed mission to Mars planned</p>
-                                <div class="timeline-stats">
-                                    <span>Duration: 3 years</span>
-                                    <span>Crew: 4-6 people</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <section class="timeline-section">
+        <div class="container">
+          <h2 class="section-title">Space Exploration Timeline</h2>
+          <div class="timeline-controls">
+            <button class="timeline-btn active" data-era="early">
+              Early Era (1950s-1960s)
+            </button>
+            <button class="timeline-btn" data-era="golden">
+              Golden Age (1970s-1980s)
+            </button>
+            <button class="timeline-btn" data-era="modern">
+              Modern Era (1990s-2010s)
+            </button>
+            <button class="timeline-btn" data-era="future">
+              Future (2020s+)
+            </button>
+          </div>
 
-        <section class="data-viz-section">
-            <div class="container">
-                <h2 class="section-title">Space Exploration by the Numbers</h2>
-                
-                <div class="viz-grid">
-                    <div class="viz-card">
-                        <h3>Launch Success Rate</h3>
-                        <div class="progress-chart">
-                            <div class="progress-ring">
-                                <svg class="progress-svg" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="45" class="progress-bg"/>
-                                    <circle cx="50" cy="50" r="45" class="progress-fill" data-percent="92"/>
-                                </svg>
-                                <div class="progress-text">92%</div>
-                            </div>
-                        </div>
-                        <p>Success rate of space missions in the last decade</p>
-                    </div>
-                    
-                    <div class="viz-card">
-                        <h3>Countries in Space</h3>
-                        <div class="bar-chart">
-                            <div class="bar-item">
-                                <span class="bar-label">USA</span>
-                                <div class="bar-container">
-                                    <div class="bar-fill" data-value="45"></div>
-                                </div>
-                                <span class="bar-value">45%</span>
-                            </div>
-                            <div class="bar-item">
-                                <span class="bar-label">Russia</span>
-                                <div class="bar-container">
-                                    <div class="bar-fill" data-value="22"></div>
-                                </div>
-                                <span class="bar-value">22%</span>
-                            </div>
-                            <div class="bar-item">
-                                <span class="bar-label">China</span>
-                                <div class="bar-container">
-                                    <div class="bar-fill" data-value="15"></div>
-                                </div>
-                                <span class="bar-value">15%</span>
-                            </div>
-                            <div class="bar-item">
-                                <span class="bar-label">Others</span>
-                                <div class="bar-container">
-                                    <div class="bar-fill" data-value="18"></div>
-                                </div>
-                                <span class="bar-value">18%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="viz-card">
-                        <h3>Mission Types</h3>
-                        <div class="pie-chart">
-                            <div class="pie-container">
-                                <svg class="pie-svg" viewBox="0 0 200 200">
-                                    <circle cx="100" cy="100" r="80" class="pie-slice" data-percent="35" style="--color: #ff6b6b"/>
-                                    <circle cx="100" cy="100" r="80" class="pie-slice" data-percent="28" style="--color: #4ecdc4"/>
-                                    <circle cx="100" cy="100" r="80" class="pie-slice" data-percent="25" style="--color: #45b7d1"/>
-                                    <circle cx="100" cy="100" r="80" class="pie-slice" data-percent="12" style="--color: #f9ca24"/>
-                                </svg>
-                            </div>
-                            <div class="pie-legend">
-                                <div class="legend-item"><span class="legend-color" style="background: #ff6b6b"></span> Satellites (35%)</div>
-                                <div class="legend-item"><span class="legend-color" style="background: #4ecdc4"></span> Planetary (28%)</div>
-                                <div class="legend-item"><span class="legend-color" style="background: #45b7d1"></span> Crewed (25%)</div>
-                                <div class="legend-item"><span class="legend-color" style="background: #f9ca24"></span> Deep Space (12%)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <div class="timeline-container">
+            <div class="timeline-line"></div>
 
-        <section class="interactive-section">
-            <div class="container">
-                <h2 class="section-title">Interactive Space Mission Simulator</h2>
-                
-                <div class="simulator-container">
-                    <div class="mission-controls">
-                        <div class="control-group">
-                            <label for="mission-type">Mission Type:</label>
-                            <select id="mission-type">
-                                <option value="satellite">Satellite Deployment</option>
-                                <option value="moon">Moon Landing</option>
-                                <option value="mars">Mars Exploration</option>
-                                <option value="iss">ISS Resupply</option>
-                            </select>
-                        </div>
-                        
-                        <div class="control-group">
-                            <label for="fuel-level">Fuel Level:</label>
-                            <input type="range" id="fuel-level" min="0" max="100" value="75">
-                            <span id="fuel-display">75%</span>
-                        </div>
-                        
-                        <div class="control-group">
-                            <label for="crew-size">Crew Size:</label>
-                            <input type="range" id="crew-size" min="0" max="7" value="3">
-                            <span id="crew-display">3</span>
-                        </div>
-                        
-                        <button id="launch-btn" class="launch-button" >Launch Mission</button>
-                    </div>
-                    
-                    <div class="mission-display">
-                        <div class="rocket-animation">
-                            <div class="rocket">🚀</div>
-                            <div class="exhaust"></div>
-                        </div>
-                        <div class="mission-stats">
-                            <div class="stat-display">
-                                <span class="stat-label">Success Probability:</span>
-                                <span id="success-prob">85%</span>
-                            </div>
-                            <div class="stat-display">
-                                <span class="stat-label">Mission Cost:</span>
-                                <span id="mission-cost">$125M</span>
-                            </div>
-                            <div class="stat-display">
-                                <span class="stat-label">Duration:</span>
-                                <span id="mission-duration">6 months</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="timeline-era active" data-era="early">
+              <div class="timeline-item" data-year="1957">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Sputnik 1</h3>
+                  <p>First artificial satellite launched by Soviet Union</p>
+                  <div class="timeline-stats">
+                    <span>Weight: 183 lbs</span>
+                    <span>Orbit: 96 minutes</span>
+                  </div>
                 </div>
-            </div>
-        </section>
+              </div>
 
-        <section class="future-section">
-            <div class="container">
-                <h2 class="section-title">The Future of Space Exploration</h2>
-                
-                <div class="future-grid">
-                    <div class="future-card" data-hover="mars">
-                        <div class="future-icon">🔴</div>
-                        <h3>Mars Colonization</h3>
-                        <p>Establishing permanent human settlements on Mars by 2040</p>
-                        <div class="future-progress">
-                            <div class="progress-bar" data-progress="35"></div>
-                            <span class="progress-label">35% Complete</span>
-                        </div>
-                    </div>
-                    
-                    <div class="future-card" data-hover="moon">
-                        <div class="future-icon">🌙</div>
-                        <h3>Lunar Base</h3>
-                        <p>Building a sustainable research station on the Moon</p>
-                        <div class="future-progress">
-                            <div class="progress-bar" data-progress="60"></div>
-                            <span class="progress-label">60% Complete</span>
-                        </div>
-                    </div>
-                    
-                    <div class="future-card" data-hover="asteroid">
-                        <div class="future-icon">💎</div>
-                        <h3>Asteroid Mining</h3>
-                        <p>Extracting valuable resources from near-Earth asteroids</p>
-                        <div class="future-progress">
-                            <div class="progress-bar" data-progress="15"></div>
-                            <span class="progress-label">15% Complete</span>
-                        </div>
-                    </div>
-                    
-                    <div class="future-card" data-hover="interstellar">
-                        <div class="future-icon">⭐</div>
-                        <h3>Interstellar Travel</h3>
-                        <p>Developing technology for travel to other star systems</p>
-                        <div class="future-progress">
-                            <div class="progress-bar" data-progress="5"></div>
-                            <span class="progress-label">5% Complete</span>
-                        </div>
-                    </div>
+              <div class="timeline-item" data-year="1961">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Yuri Gagarin</h3>
+                  <p>First human in space aboard Vostok 1</p>
+                  <div class="timeline-stats">
+                    <span>Duration: 108 minutes</span>
+                    <span>Altitude: 327 km</span>
+                  </div>
                 </div>
+              </div>
+
+              <div class="timeline-item" data-year="1969">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Apollo 11</h3>
+                  <p>First humans land on the Moon</p>
+                  <div class="timeline-stats">
+                    <span>Crew: 3 astronauts</span>
+                    <span>Moon time: 21.5 hours</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
+
+            <div class="timeline-era" data-era="golden">
+              <div class="timeline-item" data-year="1975">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Apollo-Soyuz</h3>
+                  <p>First joint US-Soviet space mission</p>
+                  <div class="timeline-stats">
+                    <span>Duration: 9 days</span>
+                    <span>Docked: 44 hours</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-year="1981">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Space Shuttle</h3>
+                  <p>First reusable spacecraft launches</p>
+                  <div class="timeline-stats">
+                    <span>Missions: 135</span>
+                    <span>Payload: 27,500 kg</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-year="1986">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Mir Space Station</h3>
+                  <p>Long-duration space laboratory</p>
+                  <div class="timeline-stats">
+                    <span>Operational: 15 years</span>
+                    <span>Crew: 104 people</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-era" data-era="modern">
+              <div class="timeline-item" data-year="1998">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>ISS Construction</h3>
+                  <p>International Space Station assembly begins</p>
+                  <div class="timeline-stats">
+                    <span>Partners: 15 nations</span>
+                    <span>Cost: $150 billion</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-year="2008">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>SpaceX Falcon 1</h3>
+                  <p>First private liquid-fueled rocket reaches orbit</p>
+                  <div class="timeline-stats">
+                    <span>Payload: 165 kg</span>
+                    <span>Cost: $7M</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-year="2012">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Curiosity Rover</h3>
+                  <p>Advanced Mars exploration begins</p>
+                  <div class="timeline-stats">
+                    <span>Weight: 899 kg</span>
+                    <span>Distance: 29 km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-era" data-era="future">
+              <div class="timeline-item" data-year="2020">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Perseverance</h3>
+                  <p>Search for signs of ancient life on Mars</p>
+                  <div class="timeline-stats">
+                    <span>Samples: 24 collected</span>
+                    <span>Helicopter: Ingenuity</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-year="2024">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Artemis Program</h3>
+                  <p>Return humans to the Moon</p>
+                  <div class="timeline-stats">
+                    <span>Target: 2026</span>
+                    <span>First woman on Moon</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-year="2030">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h3>Mars Mission</h3>
+                  <p>First crewed mission to Mars planned</p>
+                  <div class="timeline-stats">
+                    <span>Duration: 3 years</span>
+                    <span>Crew: 4-6 people</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="data-viz-section">
+        <div class="container">
+          <h2 class="section-title">Space Exploration by the Numbers</h2>
+
+          <div class="viz-grid">
+            <div class="viz-card">
+              <h3>Launch Success Rate</h3>
+              <div class="progress-chart">
+                <div class="progress-ring">
+                  <svg class="progress-svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" class="progress-bg" />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      class="progress-fill"
+                      data-percent="92"
+                    />
+                  </svg>
+                  <div class="progress-text">92%</div>
+                </div>
+              </div>
+              <p>Success rate of space missions in the last decade</p>
+            </div>
+
+            <div class="viz-card">
+              <h3>Countries in Space</h3>
+              <div class="bar-chart">
+                <div class="bar-item">
+                  <span class="bar-label">USA</span>
+                  <div class="bar-container">
+                    <div class="bar-fill" data-value="45"></div>
+                  </div>
+                  <span class="bar-value">45%</span>
+                </div>
+                <div class="bar-item">
+                  <span class="bar-label">Russia</span>
+                  <div class="bar-container">
+                    <div class="bar-fill" data-value="22"></div>
+                  </div>
+                  <span class="bar-value">22%</span>
+                </div>
+                <div class="bar-item">
+                  <span class="bar-label">China</span>
+                  <div class="bar-container">
+                    <div class="bar-fill" data-value="15"></div>
+                  </div>
+                  <span class="bar-value">15%</span>
+                </div>
+                <div class="bar-item">
+                  <span class="bar-label">Others</span>
+                  <div class="bar-container">
+                    <div class="bar-fill" data-value="18"></div>
+                  </div>
+                  <span class="bar-value">18%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="viz-card">
+              <h3>Mission Types</h3>
+              <div class="pie-chart">
+                <div class="pie-container">
+                  <svg class="pie-svg" viewBox="0 0 200 200">
+                    <circle
+                      cx="100"
+                      cy="100"
+                      r="80"
+                      class="pie-slice"
+                      data-percent="35"
+                      style="--color: #ff6b6b"
+                    />
+                    <circle
+                      cx="100"
+                      cy="100"
+                      r="80"
+                      class="pie-slice"
+                      data-percent="28"
+                      style="--color: #4ecdc4"
+                    />
+                    <circle
+                      cx="100"
+                      cy="100"
+                      r="80"
+                      class="pie-slice"
+                      data-percent="25"
+                      style="--color: #45b7d1"
+                    />
+                    <circle
+                      cx="100"
+                      cy="100"
+                      r="80"
+                      class="pie-slice"
+                      data-percent="12"
+                      style="--color: #f9ca24"
+                    />
+                  </svg>
+                </div>
+                <div class="pie-legend">
+                  <div class="legend-item">
+                    <span
+                      class="legend-color"
+                      style="background: #ff6b6b"
+                    ></span>
+                    Satellites (35%)
+                  </div>
+                  <div class="legend-item">
+                    <span
+                      class="legend-color"
+                      style="background: #4ecdc4"
+                    ></span>
+                    Planetary (28%)
+                  </div>
+                  <div class="legend-item">
+                    <span
+                      class="legend-color"
+                      style="background: #45b7d1"
+                    ></span>
+                    Crewed (25%)
+                  </div>
+                  <div class="legend-item">
+                    <span
+                      class="legend-color"
+                      style="background: #f9ca24"
+                    ></span>
+                    Deep Space (12%)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="interactive-section">
+        <div class="container">
+          <h2 class="section-title">Interactive Space Mission Simulator</h2>
+
+          <div class="simulator-container">
+            <div class="mission-controls">
+              <div class="control-group">
+                <label for="mission-type">Mission Type:</label>
+                <select id="mission-type">
+                  <option id="opt" value="satellite">
+                    Satellite Deployment
+                  </option>
+                  <option id="opt" value="moon">Moon Landing</option>
+                  <option id="opt" value="mars">Mars Exploration</option>
+                  <option id="opt" value="iss">ISS Resupply</option>
+                </select>
+              </div>
+
+              <div class="control-group">
+                <label for="fuel-level">Fuel Level:</label>
+                <input
+                  type="range"
+                  id="fuel-level"
+                  min="0"
+                  max="100"
+                  value="75"
+                />
+                <span id="fuel-display">75%</span>
+              </div>
+
+              <div class="control-group">
+                <label for="crew-size">Crew Size:</label>
+                <input type="range" id="crew-size" min="0" max="7" value="3" />
+                <span id="crew-display">3</span>
+              </div>
+
+              <button id="launch-btn" class="launch-button">
+                Launch Mission
+              </button>
+            </div>
+
+            <div class="mission-display">
+              <div class="rocket-animation">
+                <div class="rocket">🚀</div>
+                <div class="exhaust"></div>
+              </div>
+              <div class="mission-stats">
+                <div class="stat-display">
+                  <span class="stat-label">Success Probability:</span>
+                  <span id="success-prob">85%</span>
+                </div>
+                <div class="stat-display">
+                  <span class="stat-label">Mission Cost:</span>
+                  <span id="mission-cost">$125M</span>
+                </div>
+                <div class="stat-display">
+                  <span class="stat-label">Duration:</span>
+                  <span id="mission-duration">6 months</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="future-section">
+        <div class="container">
+          <h2 class="section-title">The Future of Space Exploration</h2>
+
+          <div class="future-grid">
+            <div class="future-card" data-hover="mars">
+              <div class="future-icon">🔴</div>
+              <h3>Mars Colonization</h3>
+              <p>Establishing permanent human settlements on Mars by 2040</p>
+              <div class="future-progress">
+                <div class="progress-bar" data-progress="35"></div>
+                <span class="progress-label">35% Complete</span>
+              </div>
+            </div>
+
+            <div class="future-card" data-hover="moon">
+              <div class="future-icon">🌙</div>
+              <h3>Lunar Base</h3>
+              <p>Building a sustainable research station on the Moon</p>
+              <div class="future-progress">
+                <div class="progress-bar" data-progress="60"></div>
+                <span class="progress-label">60% Complete</span>
+              </div>
+            </div>
+
+            <div class="future-card" data-hover="asteroid">
+              <div class="future-icon">💎</div>
+              <h3>Asteroid Mining</h3>
+              <p>Extracting valuable resources from near-Earth asteroids</p>
+              <div class="future-progress">
+                <div class="progress-bar" data-progress="15"></div>
+                <span class="progress-label">15% Complete</span>
+              </div>
+            </div>
+
+            <div class="future-card" data-hover="interstellar">
+              <div class="future-icon">⭐</div>
+              <h3>Interstellar Travel</h3>
+              <p>Developing technology for travel to other star systems</p>
+              <div class="future-progress">
+                <div class="progress-bar" data-progress="5"></div>
+                <span class="progress-label">5% Complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Data Sources</h3>
-                    <ul>
-                        <li>NASA Historical Database</li>
-                        <li>ESA Mission Archives</li>
-                        <li>SpaceX Launch Records</li>
-                        <li>International Space Station Program</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Technologies Used</h3>
-                    <ul>
-                        <li>HTML5 & CSS3</li>
-                        <li>Vanilla JavaScript</li>
-                        <li>CSS Animations</li>
-                        <li>SVG Graphics</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Interactive Features</h3>
-                    <ul>
-                        <li>Timeline Navigation</li>
-                        <li>Data Visualisations</li>
-                        <li>Mission Simulator</li>
-                        <li>Progress Animations</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Cosmosphere. Created for educational purposes.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Data Sources</h3>
+            <ul>
+              <li>NASA Historical Database</li>
+              <li>ESA Mission Archives</li>
+              <li>SpaceX Launch Records</li>
+              <li>International Space Station Program</li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Technologies Used</h3>
+            <ul>
+              <li>HTML5 & CSS3</li>
+              <li>Vanilla JavaScript</li>
+              <li>CSS Animations</li>
+              <li>SVG Graphics</li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Interactive Features</h3>
+            <ul>
+              <li>Timeline Navigation</li>
+              <li>Data Visualisations</li>
+              <li>Mission Simulator</li>
+              <li>Progress Animations</li>
+            </ul>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Cosmosphere. Created for educational purposes.</p>
+        </div>
+      </div>
     </footer>
 
     <div class="tooltip" id="tooltip">
-        <div class="tooltip-content"></div>
+      <div class="tooltip-content"></div>
     </div>
 
     <div class="developer-credit">
-        <a href="https://eccentriccoder01.github.io/Me" target="_blank" class="explorer-signature" title="Visit My World">
-            Developed by <span class="eccentric">Eccentric Explorer</span>
-        </a>
+      <a
+        href="https://eccentriccoder01.github.io/Me"
+        target="_blank"
+        class="explorer-signature"
+        title="Visit My World"
+      >
+        Developed by <span class="eccentric">Eccentric Explorer</span>
+      </a>
     </div>
     <!-- Rocket launch sound -->
-<audio id="animated-sound" src="mixkit-cinematic-whoosh-fast-transition-1492.mp3" preload="auto"></audio>
+    <audio
+      id="animated-sound"
+      src="mixkit-cinematic-whoosh-fast-transition-1492.mp3"
+      preload="auto"
+    ></audio>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
