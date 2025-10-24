@@ -294,27 +294,27 @@
                     <div class="mission-controls">
                         <div class="control-group">
                             <label for="mission-type">Mission Type:</label>
-                            <select id="mission-type">
-                                <option value="satellite">Satellite Deployment</option>
-                                <option value="moon">Moon Landing</option>
-                                <option value="mars">Mars Exploration</option>
-                                <option value="iss">ISS Resupply</option>
+                            <select id="mission-type" data-tooltip="Choose your mission type. Each has different optimal parameters.">
+                                <option value="satellite">Satellite Deployment (Optimal: 60-100% fuel, 0-2 crew)</option>
+                                <option value="moon">Moon Landing (Optimal: 80-100% fuel, 2-4 crew)</option>
+                                <option value="mars">Mars Exploration (Optimal: 90-100% fuel, 4-6 crew)</option>
+                                <option value="iss">ISS Resupply (Optimal: 70-100% fuel, 3-5 crew)</option>
                             </select>
                         </div>
                         
                         <div class="control-group">
                             <label for="fuel-level">Fuel Level:</label>
-                            <input type="range" id="fuel-level" min="0" max="100" value="75">
+                            <input type="range" id="fuel-level" min="0" max="100" value="75" data-tooltip="Higher fuel levels increase mission success rate. Too much fuel wastes resources.">
                             <span id="fuel-display">75%</span>
                         </div>
                         
                         <div class="control-group">
                             <label for="crew-size">Crew Size:</label>
-                            <input type="range" id="crew-size" min="0" max="7" value="3">
+                            <input type="range" id="crew-size" min="0" max="7" value="3" data-tooltip="Crew size affects mission complexity. Too few crew may lack expertise, too many increases risk.">
                             <span id="crew-display">3</span>
                         </div>
                         
-                        <button id="launch-btn" class="launch-button" >Launch Mission</button>
+                        <button id="launch-btn" class="launch-button" data-tooltip="Launch your mission! Success depends on your parameter choices.">Launch Mission</button>
                     </div>
                     
                     <div class="mission-display">

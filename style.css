@@ -664,6 +664,19 @@ body {
     font-size: 1rem;
 }
 
+/* Fix text visibility in select dropdown */
+.control-group select {
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    border: 2px solid rgba(78,205,196,0.3);
+}
+
+.control-group select option {
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    padding: 0.5rem;
+}
+
 .control-group select:focus,
 .control-group input[type="range"]:focus {
     outline: none;

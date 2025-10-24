@@ -217,6 +217,9 @@ function setupMissionSimulator() {
         missionCost.textContent = `$${totalCost}M`;
         missionDuration.textContent = mission.baseDuration;
         
+        // Add visual feedback for parameter optimization
+        updateParameterFeedback(missionType.value, fuel, crew);
+        
         // Store for launch simulation
         missionData = {
             type: missionType.value,
@@ -248,6 +251,124 @@ function setupMissionSimulator() {
 document.getElementById('test-sound').addEventListener('click', () => {
     const sound = document.getElementById('animated-sound');
 });
+// Update visual feedback for parameter optimization
+function updateParameterFeedback(missionType, fuel, crew) {
+    const optimalParams = {
+        satellite: { minFuel: 60, maxFuel: 100, minCrew: 0, maxCrew: 2 },
+        moon: { minFuel: 80, maxFuel: 100, minCrew: 2, maxCrew: 4 },
+        mars: { minFuel: 90, maxFuel: 100, minCrew: 4, maxCrew: 6 },
+        iss: { minFuel: 70, maxFuel: 100, minCrew: 3, maxCrew: 5 }
+    };
+    
+    const optimal = optimalParams[missionType];
+    if (!optimal) return;
+    
+    // Update fuel level visual feedback
+    const fuelInput = document.getElementById('fuel-level');
+    const fuelDisplay = document.getElementById('fuel-display');
+    
+    if (fuel < optimal.minFuel) {
+        fuelInput.style.borderColor = '#ff6b6b';
+        fuelDisplay.style.color = '#ff6b6b';
+    } else if (fuel > optimal.maxFuel) {
+        fuelInput.style.borderColor = '#f9ca24';
+        fuelDisplay.style.color = '#f9ca24';
+    } else {
+        fuelInput.style.borderColor = '#4ecdc4';
+        fuelDisplay.style.color = '#4ecdc4';
+    }
+    
+    // Update crew size visual feedback
+    const crewInput = document.getElementById('crew-size');
+    const crewDisplay = document.getElementById('crew-display');
+    
+    if (crew < optimal.minCrew) {
+        crewInput.style.borderColor = '#ff6b6b';
+        crewDisplay.style.color = '#ff6b6b';
+    } else if (crew > optimal.maxCrew) {
+        crewInput.style.borderColor = '#f9ca24';
+        crewDisplay.style.color = '#f9ca24';
+    } else {
+        crewInput.style.borderColor = '#4ecdc4';
+        crewDisplay.style.color = '#4ecdc4';
+    }
+}
+
+// Evaluate mission success based on player inputs
+function evaluateMissionSuccess() {
+    const mission = missionData;
+    
+    // Define optimal parameters for each mission type
+    const optimalParams = {
+        satellite: {
+            minFuel: 60,
+            maxFuel: 100,
+            minCrew: 0,
+            maxCrew: 2,
+            fuelWeight: 0.4,
+            crewWeight: 0.1
+        },
+        moon: {
+            minFuel: 80,
+            maxFuel: 100,
+            minCrew: 2,
+            maxCrew: 4,
+            fuelWeight: 0.5,
+            crewWeight: 0.3
+        },
+        mars: {
+            minFuel: 90,
+            maxFuel: 100,
+            minCrew: 4,
+            maxCrew: 6,
+            fuelWeight: 0.6,
+            crewWeight: 0.4
+        },
+        iss: {
+            minFuel: 70,
+            maxFuel: 100,
+            minCrew: 3,
+            maxCrew: 5,
+            fuelWeight: 0.3,
+            crewWeight: 0.2
+        }
+    };
+    
+    const optimal = optimalParams[mission.type];
+    if (!optimal) return false;
+    
+    // Calculate success based on how close parameters are to optimal
+    let fuelScore = 0;
+    let crewScore = 0;
+    
+    // Fuel scoring (0-1 scale)
+    if (mission.fuel >= optimal.minFuel && mission.fuel <= optimal.maxFuel) {
+        fuelScore = 1;
+    } else if (mission.fuel < optimal.minFuel) {
+        fuelScore = mission.fuel / optimal.minFuel;
+    } else {
+        fuelScore = Math.max(0, 1 - (mission.fuel - optimal.maxFuel) / 20);
+    }
+    
+    // Crew scoring (0-1 scale)
+    if (mission.crew >= optimal.minCrew && mission.crew <= optimal.maxCrew) {
+        crewScore = 1;
+    } else if (mission.crew < optimal.minCrew) {
+        crewScore = mission.crew / optimal.minCrew;
+    } else {
+        crewScore = Math.max(0, 1 - (mission.crew - optimal.maxCrew) / 3);
+    }
+    
+    // Calculate weighted success probability
+    const weightedScore = (fuelScore * optimal.fuelWeight) + (crewScore * optimal.crewWeight);
+    const baseSuccessRate = mission.success / 100;
+    const finalSuccessRate = Math.min(0.95, Math.max(0.05, weightedScore * baseSuccessRate));
+    
+    // Add some randomness but heavily weighted toward the calculated success rate
+    const randomFactor = Math.random();
+    return randomFactor < finalSuccessRate;
+}
+
 // Launch mission animation
 function launchMission() {
     const rocket = document.querySelector('.rocket');
@@ -284,7 +405,7 @@ if (sound) {
     rocket.classList.add('launching');
     // Play launch sequence
     setTimeout(() => {
-        const success = Math.random() * 100 < missionData.success;
+        const success = evaluateMissionSuccess();
         showMissionResult(success);
         // Reset rocket
         rocket.classList.remove('launching');
